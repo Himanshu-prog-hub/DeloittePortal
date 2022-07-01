@@ -281,7 +281,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\UserInfoes\Create.cshtml" />
+    <Content Include="Views\UserInfoes\Upload.cshtml" />
     <Content Include="Views\UserInfoes\Delete.cshtml" />
     <Content Include="Views\UserInfoes\Details.cshtml" />
     <Content Include="Views\UserInfoes\Edit.cshtml" />

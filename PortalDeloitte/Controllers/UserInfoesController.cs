@@ -37,7 +37,7 @@ namespace PortalDeloitte.Controllers
         }
 
         // GET: UserInfoes/Create
-        public ActionResult Create()
+        public ActionResult Upload()
         {
             return View();
         }
@@ -47,7 +47,7 @@ namespace PortalDeloitte.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Username,Password")] UserInfo userInfo)
+        public ActionResult Upload([Bind(Include = "ID,Username,Password")] UserInfo userInfo)
         {
             if (ModelState.IsValid)
             {

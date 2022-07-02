@@ -7,6 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PortalDeloitte.Models;
+using System.IO;
+using PortalDeloitte.Models;
+
+
 
 namespace PortalDeloitte.Controllers
 {
@@ -45,18 +49,21 @@ namespace PortalDeloitte.Controllers
         // POST: UserInfoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Upload([Bind(Include = "ID,Username,Password")] UserInfo userInfo)
+        public ActionResult Upload(Employee emp)
         {
-            if (ModelState.IsValid)
-            {
-                db.UserInfoes.Add(userInfo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            string path = Server.MapPath("~/App_Data/File");
+            string fileName = Path.GetFileName(emp.File.FileName);
+            string fullPath = Path.Combine(path, fileName);
+            emp.date = DateTime.Now;
+            emp.Name = User.Identity.Name;
+            emp.File.SaveAs(fullPath);
 
-            return View(userInfo);
+            return View();
         }
 
         // GET: UserInfoes/Edit/5
